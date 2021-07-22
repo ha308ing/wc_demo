@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='./style.css' type='text/css' />
+	<title>Document</title>
+	<style></style>
+	<script type='module' src='./components/age-scroll-input/age-scroll-input.js'></script>
+	<script type='module' src='./components/product-cards-carousel/product-cards-carousel.js'></script>
+	<script src='script.js'></script>
+</head>
+<body>
+	<div class='main_container' data-active_screen='gender_container'>
+		<div class='content_container'>
+			<div class='gender_container' data-gender_value='' data-screen_name='gender_container'>
+				<div class='gender_option gender_female' data-gender_value='female'>
+					<svg  x="0px" y="0px"
+	 viewBox="0 0 512 512">
+				<g>
+					<circle class="st2" cx="256" cy="164.56" r="127.27"/>
+					<line class="st2" x1="181.89" y1="401.44" x2="331.89" y2="401.44"/>
+					<line class="st2" x1="259.25" y1="294.56" x2="259.25" y2="474.72"/>
+				</g>
+				</svg>
+				</div>
+				<div class='gender_option gender_male' data-gender_value='male'>
+					<svg x="0px" y="0px"
+					viewBox="0 0 512 512">
+			   <g>
+				   <circle class="st0" cx="208.31" cy="310.07" r="127.27"/>
+				   <line class="st0" x1="278.16" y1="75.36" x2="428.16" y2="75.36"/>
+				   <line class="st0" x1="430.96" y1="224.66" x2="430.96" y2="74.66"/>
+				   <line class="st0" x1="297.94" y1="215.85" x2="425.33" y2="88.46"/>
+			   </g>
+			   </svg>
+				</div>
+			</div>
+			<div class='age_container' data-screen_name='age_container'>
+				<age-scroll-input height='100vh' min='5' max='15' value='10' number_color='#fff' active_number_background='transparent' active_number_color='var(--gender-sign-color-one)'></age-scroll-input>
+				<!-- <div class='button confirm_age_button bold600'> -->
+				<!-- </div> -->
+				
+				<back-button class="navigation_svg backward_icon navigation_backward"></back-button>
+				<forward-button class="navigation_svg forward_icon navigation_confirm_age_input"></forward-button>
+			</div>
+			<div class='product_container' data-screen_name='product_container'>
+				
+				<product-cards-carousel product_title_background='#ffffffcc' product_title_color='var(--gender-button_font_color_one)'></product-cards-carousel>
+				<div class='button buy_button'>Купить</div>
+				<back-button class="navigation_svg backward_icon navigation_backward"></back-button>
+			</div>
+		</div>
+
+	</div>
+	<script></script>
+</body>
+</html>

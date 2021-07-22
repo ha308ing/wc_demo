@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src='scroller-input.js' type='module'></script>
+	<style>
+		:root {
+			box-sizing: border-box;
+			line-height: 1;
+		}
+	
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		scroller-input {
+			--number_color: #ccc;
+			--number_color_opacity: 1;
+			--active_number_color: #ffffff;
+			--active_number_background: #000000;
+		}
+
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<scroller-input height='100vh' min='0' max='25' value='10' active_number_background='red'></scroller-input>
+</body>
+</html>

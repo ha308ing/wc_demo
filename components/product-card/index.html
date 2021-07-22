@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type='module' src='product-card.js'></script>
+	<style>
+		product-card {
+			width: 250px;
+			height:250px;
+			display: block;
+		}
+		.product_container {
+			display: flex;
+			flex-flow: row nowrap;
+			width: 60vw;
+			height: 10vh;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 5vh;
+			left: 20vw;
+			margin: 0;
+			padding: 0;
+			justify-content: space-between;
+		}
+
+		.active {
+			position: fixed !important;
+			height: 40vh !important;
+			top: 30vh;
+			width: 40vh !important;
+			left: calc(50vw - 20vh);
+			--product_card_width: 40vh !important;
+			--product_card_height: 40vh !important;
+
+		}
+
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<!-- <product-card product_title='Морской котик' class='active' product_image='./d_9_1.jpg'></product-card> -->
+	<product-card product_title='Морской котик' product_title_color='red' product_title_background='transparent'></product-card>
+	<product-card product_title='Морской котик' product_image='url(./d_9_1.jpg)'></product-card>
+	<!-- <div class='product_container'> -->
+		<!-- <product-card style='
+			--product_image_background: url("./d_9_1.jpg");
+			--product_title_font_size: 3rem;
+			--product_card_width: 20vw;
+			--product_card_height: 30vh;
+			--product_title_background:transparent;
+			--product_title_color:red' product_title='Заяц' product_image='./d_9_1.jpg'></product-card> -->
+		<!-- <product-card></product-card> -->
+	</div>
+</body>
+</html>

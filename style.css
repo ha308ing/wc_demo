@@ -1,0 +1,404 @@
+
+		@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+		:root {
+			box-sizing: border-box;
+			line-height: 1;
+			font-family: 'Rubik', sans-serif;
+		}
+		*,*::before,*::after {
+			box-sizing: inherit;
+		}
+		.main_container {
+			--female-color-angle: 22deg;
+
+			--female-color-left: #a07ae7;
+			--female-color-middle: #eeb0df;
+			--female-color-right: #ee7557;
+
+			--female-sign-color-one: #ae134e;
+			--female-sign-color-two: #801c77;
+			--female-sign-color-three: #7d45bf;
+
+			--female-button_gradient_angle: 33deg;
+			--female-button_font_color_one: #a607bd;
+			--female-button_font_color_two: #deafe6;
+			--female-button_color_one: #eaa7ec;
+			--female-button_color_two: #f3ddc0;
+			--female-button_color_three: #d6b1f8;
+			--female-button_border_color: #e2e2e2;
+			--female-button_shadow_color_one: #8416df;
+			--female-button_shadow_color_two: #fbe1ff;
+
+
+			--male-color-angle: 22deg;
+
+			--male-color-left: #81e5f7;
+			--male-color-middle: #72ebb2;
+			--male-color-right: #4bb7ff;
+
+			--male-sign-color-one: #3d8baa;
+			--male-sign-color-two: #265fb7;
+			--male-sign-color-three: #3eb0a6;
+
+
+			
+			--male-button_gradient_angle: 33deg;
+			--male-button_font_color_one: #3379d4;
+			--male-button_font_color_two: #4fb9ca;
+			--male-button_color_one: #c8f4d5;
+			--male-button_color_two: #d2fbf4;
+			--male-button_color_three: #b9dff2;
+			--male-button_border_color: #fff;
+			--male-button_shadow_color_one: #3379d4;
+			--male-button_shadow_color_two: #ddf8ff;
+
+			--horizontal-padding: 1vw;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			width: 100vw;
+			overflow: hidden;
+			background: linear-gradient(
+				var(--gender-color-angle),
+				var(--gender-color-left),
+				#feffc3,
+				#fff,
+				var(--gender-color-middle),
+				var(--gender-color-right)
+			);
+		}
+		.main_container[data-gender='female'] {
+			--gender-color-angle:var(--female-color-angle);
+			--gender-color-left:var(--female-color-left);
+			--gender-color-middle:var(--female-color-middle);
+			--gender-color-right:var(--female-color-right);
+			--gender-sign-color-one:var(--female-sign-color-one);
+			--gender-sign-color-two:var(--female-sign-color-two);
+			--gender-button_font_color_one: var(--female-button_font_color_one);
+			--gender-button_font_color_two: var(--female-button_font_color_two);
+			--gender-button_gradient_angle: var(--female-button_gradient_angle);
+			--gender-button_color_one: var(--female-button_color_one);
+			--gender-button_color_two: var(--female-button_color_two);
+			--gender-button_color_three: var(--female-button_color_three);
+			--gender-button_border_color: var(--female-button_border_color);
+			--gender-button_shadow_color_one: var(--female-button_shadow_color_one);
+			--gender-button_shadow_color_two: var(--female-button_shadow_color_two);
+		}
+		.main_container[data-gender='male'] {
+			--gender-color-angle:var(--male-color-angle);
+			--gender-color-left:var(--male-color-left);
+			--gender-color-middle:var(--male-color-middle);
+			--gender-color-right:var(--male-color-right);
+			--gender-sign-color-one:var(--male-sign-color-one);
+			--gender-sign-color-two:var(--male-sign-color-two);
+			--gender-button_font_color_one: var(--male-button_font_color_one);
+			--gender-button_font_color_two: var(--male-button_font_color_two);
+			--gender-button_gradient_angle: var(--male-button_gradient_angle);
+			--gender-button_color_one: var(--male-button_color_one);
+			--gender-button_color_two: var(--male-button_color_two);
+			--gender-button_color_three: var(--male-button_color_three);
+			--gender-button_border_color: var(--male-button_border_color);
+			--gender-button_shadow_color_one: var(--male-button_shadow_color_one);
+			--gender-button_shadow_color_two: var(--male-button_shadow_color_two);
+		}
+
+		.previous_screen_control {
+			--size: 3rem;
+			display: block;
+			height: var(--size);
+			width: var(--size);
+			position: fixed;
+			left: var(--horizontal-padding);
+			top: calc( 50vh - var(--size) / 2 );
+		}
+
+		.content_container {
+			--translateN: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			overflow: hidden;
+			display: flex;
+			flex-flow: row nowrap;
+			/* align-items: flex-start; */
+			/* width: 100vw; */
+			transform: translateX( calc( var(--translateN) * -100vw ) );
+			transition: transform .6s .2s cubic-bezier(.9,-0.03,.19,.97);
+		}
+		.content_container > * {
+			flex: 0 0 100vw;
+			height: 100vh;
+			width: 100vw;
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* .button {
+			--button_height: 2rem;
+			--button_font_color_one: #fff;
+			--button_font_color_two: #fff;
+			--button_color_one: #fff;
+			--button_color_two: #fff;
+			--button_color_three: #fff;
+			--button_border_color: #fff;
+			--button_shadow_color_one: #fff;
+			--button_shadow_color_two: #fff;
+			--button_gradient_angle: 22deg;
+			font-size: calc( var(--button_height) * .75);
+			line-height: var(--button_height);
+			height: var(--button_height);
+			text-align: center;
+			padding: .2em var(--button_height);
+			border-radius: .5em;
+			border: 1px solid var(--button_border_color);
+			background: linear-gradient(
+				var(--button_gradient_angle),
+				var(--button_color_one),
+				var(--button_color_two),
+				var(--button_color_three));
+			box-shadow:
+				0 .2em .2em var(--button_shadow_color_one),
+				0 .3em .3em var(--button_shadow_color_two);
+			color: var(--button_font_color_one);
+			transition: all .3s;
+		}
+		.button:hover {
+			transform: translateY(-.15em);
+			box-shadow:
+				0 .3em .3em var(--button_shadow_color_one),
+				0 .4em .4em var(--button_shadow_color_two);
+		}
+		.button:active {
+			transform: translateY(.15em);
+			box-shadow:
+				0 0 .3em .3em var(--button_shadow_color_two),
+				0 0 .6em .3em var(--button_shadow_color_one);
+			color: var(--button_font_color_two);
+			text-shadow: 0 0 .1em var(--button_font_color_two);
+		} */
+		.bold600 {
+			font-weight: 600;
+		}
+		
+		.navigation_svg {
+			--navigation_svg_size: 3rem;
+			--navigation_svg_color: var(--gender-sign-color-one);
+			--navigation_svg_box_shadow_blur: 0;
+			--navigation_svg_box_shadow_spread: 0;
+			--navigation_svg_opacity: 1;
+			--navigation_svg_box_shadow_color: var(--gender-sign-color-two);
+			font-size: var(--navigation_svg_size);
+			cursor: pointer;
+			position: absolute;
+			top: calc(50vh - var(--navigation_svg_size) / 2 );
+			height: var(--navigation_svg_size);
+			width: var(--navigation_svg_size);
+			display: block;
+			transition: all .2s;
+			fill: var(--navigation_svg_color);
+			filter: drop-shadow(0 0 var(--navigation_svg_box_shadow_blur) var(--navigation_svg_box_shadow_color));
+		}
+		.navigation_svg:hover{
+			/* --part_top_color: var(--part_bottom_color); */
+			/* --part_bottom_color: var(--part_top_color); */
+			--navigation_svg_box_shadow_blur: .1em;
+			--navigation_svg_box_shadow_spread: .1em;
+			/* --navigation_svg_box_shadow_color: #fff; */
+			transform: translateY(-.1em);
+			transition: all .2s;
+		}
+		.navigation_svg:active{
+			--navigation_svg_color: #fff;
+			--part_bottom_color: var(--button_font_color_two);
+			--box-shadow_blur: .2em;
+			--box-shadow_spread: .2em;
+			--navigation_svg_box_shadow_color: #fff;
+			transform: translateY(.05em);
+			transition: all .1s;
+		}
+		.navigation_svg.forward_icon {
+			right: var(--navigation_svg_size);
+		}
+		.navigation_svg.backward_icon {
+			left: var(--navigation_svg_size);
+		}
+
+		/* gender */
+		.gender_container {
+			display: flex;
+			flex-flow: row nowrap;
+		}
+		.gender_container > .gender_option {
+			height: 100vh;
+			width: 50vw;
+			display: flex;
+			flex-flow:column nowrap;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer
+		}
+		.gender_option svg{
+			max-height: 50vh;
+		}
+		
+		.gender_option g {opacity: .5;
+						transition: all .3s;}
+						.gender_option:hover g{
+							transform:translateY(-.4rem);
+							filter: drop-shadow(0 0 .8rem #fff);
+							animation-play-state: running;
+						}
+					.gender_option g{fill:none;stroke:var(--gender-sign-color-one);stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;animation:gender_sign_color 5s infinite;animation-play-state: paused}
+					@keyframes gender_sign_color {
+						0% {
+							stroke: var(--gender-sign-color-one);
+						}
+						33% {
+							stroke: var(--gender-sign-color-two);
+						}
+						66% {
+							stroke: var(--gender-sign-color-three);
+						}
+						100% {
+							stroke: var(--gender-sign-color-one);
+						}
+						
+					}
+		.gender_female {
+			--gender-sign-color-one: var(--female-sign-color-one);
+			--gender-sign-color-two: var(--female-sign-color-two);
+			--gender-sign-color-three: var(--female-sign-color-three);
+			
+			background: linear-gradient(
+				var(--female-color-angle),
+				var(--female-color-left),
+				#feffc3,
+				#fff,
+				var(--female-color-middle),
+				var(--female-color-right)
+			);
+			background-size: 100vw 100vh;
+			background-position: left center;
+			background-repeat: no-repeat;
+		}
+		.gender_male {
+			--gender-sign-color-one: var(--male-sign-color-one);
+			--gender-sign-color-two: var(--male-sign-color-two);
+			--gender-sign-color-three: var(--male-sign-color-three);
+			background: linear-gradient(
+				var(--male-color-angle),
+				var(--male-color-left),
+				#feffc3,
+				#fff,
+				var(--male-color-middle),
+				var(--male-color-right)
+			);
+			background-size: 100vw 100vh;
+			background-position: right center;
+			background-repeat: no-repeat;
+		}
+
+
+		age-scroll-input {
+			width: 100vw;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 3rem;
+			color: var(--gender-sign-color-one);
+			/* text-transform: uppercase; */
+			cursor: default;
+		}
+
+		/* age */
+		.button.buy_button {
+			--button_font_color_one: var(--gender-button_font_color_one);
+			--button_font_color_two:var(--gender-button_font_color_two);
+			--button_color_one: var(--gender-button_color_one);
+			--button_color_two: var(--gender-button_color_two);
+			--button_color_three: var(--gender-button_color_three);
+			--button_border_color: var(--gender-button_border_color);
+			--button_shadow_color_one: var(--gender-button_shadow_color_one);
+			--button_shadow_color_two: var(--gender-button_shadow_color_two);
+			position: absolute;
+				width: 5em;
+				height: 1.5em;
+				font-size: 2rem;
+				line-height: 1.5em;
+				text-align: center;
+				bottom: 2.5em;
+				left: calc(50vw - 2.5em);
+				border-radius: .3em;
+				/* background-image: linear-gradient(25deg, #daf395, #87c8bf); */
+				border: 1px solid var(--button_border_color);
+				/* color: #fbfbcb; */
+				/* box-shadow: 0 .2em .2em #05688f; */
+				transition: all .3s;
+				user-select: none;
+			background: linear-gradient(
+				var(--gender-button_gradient_angle),
+				var(--gender-button_color_one),
+				var(--gender-button_color_two),
+				var(--gender-button_color_three));
+			box-shadow:
+				0 .2em .2em var(--gender-button_shadow_color_one),
+				0 .3em .3em var(--gender-button_shadow_color_two);
+			color: var(--gender-button_font_color_one);
+			
+			cursor: pointer;
+		}
+		.button.buy_button:hover {
+			transform: translateY(-.15em);
+			box-shadow:
+				0 .3em .3em var(--gender-button_shadow_color_one),
+				0 .4em .4em var(--gender-button_shadow_color_two);
+			}
+			.button.buy_button:active {
+				/* transform: translateY(.2em); */
+				/* box-shadow: 0 .1em .1em #05688f; */
+				transform: translateY(.15em);
+			box-shadow:
+				0 0 .3em .3em var(--gender-button_shadow_color_two),
+				0 0 .6em .3em var(--gender-button_shadow_color_one);
+			color: var(--gender-button_font_color_two);
+			text-shadow: 0 0 .1em var(--gender-button_font_color_two);
+			}
+
+
+
+		@media screen and (max-width: 900px) {
+		.gender_container {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+		.gender_container > .gender_option {
+			height: 50vh;
+			width: 100vw;
+		}
+		.gender_female {
+			background-position: top center;
+		}
+		.gender_male {
+			background-position: bottom center;
+		}
+		.gender_option svg{
+			max-height: 25vh;
+		}
+		.button.buy_button {
+			/* bottom: 2rem; */
+			
+			font-size: 1.6em;
+		}
+
+		}
+
+
+	
