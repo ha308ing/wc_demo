@@ -200,7 +200,7 @@ export default class AgeScrollInput extends HTMLElement {
 
 		this.age_measure = document.createElement('value-measure');
 		this.age_measure.className = 'age_measure';
-		this.container.append(this.age_input, this.age_measure);
+		this.container.append(this.age_measure, this.age_input);
 		this.shadow.append(style, this.container);
 
 

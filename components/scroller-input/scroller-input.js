@@ -171,6 +171,7 @@ export default class ScrollerInput extends HTMLElement {
 		}, {passive: false});
 
 		this.main_container.addEventListener('scroll', (e)=>{
+			e.stopImmediatePropagation();
 			let scroll_delta = this.main_container.clientHeight / 3;
 			let index = Math.round(this.main_container.scrollTop / scroll_delta, 0) + 1;
 			this.activate_number_block(index);
